@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>#1 Template Basic</title>
+</head>
+<body>
+    <h1>Template basic</h1>
+
+    {% comment %} This is a 2nd comment
+    2nd linebreak
+    {% endcomment %}
+
+    <p>This is a simple template to demonstrate basic HTML structure</p>
+    <p>Welcome to the Blog home page</p>
+
+    {% comment %}Single Variable{% endcomment %}
+    <p> Name: {{name}}</p>
+    <p> Age: {{age}}</p>
+
+    {% comment %} List Access {% endcomment %}
+    <p>First Skill: {{skill.0}}</p>
+    <p>Skill: {{skill}}</p>
+
+    {% comment %} Obj Attribute {% endcomment %}
+    <p>User Name: {{user.name}}</p>
+    <p>User Age: {{user.age}}</p>
+
+    {% comment %} Dict {% endcomment %}
+    <h2>Blog Information</h2>
+    <p>Title: {{blog.title}}</p>
+    <p>Create At: {{blog.created_at}}</p>
+    <p>Content: {{blog.content}}</p>
+    <p>Title: {{blog.content| safe}}</p>
+
+    {% comment %} Default Value {% endcomment %}
+    <p>Default Empty Value: {{empty_value|default:"No Value Provided"}}</p>
+    <p>Default Empty Value: {{empty_value|default_if_none:"No Data"}}</p>
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>#2 Template </title>
+</head>
+<body>
+
+    <h1>Blog Filter Page</h1>
+    <hr>
+    {% comment %} Text Filter {% endcomment %}
+    <p><b>Title (Normal):</b> {{post.title}}</p>
+    <p><b>Upper Case:</b> {{post.title|upper}}</p>
+    <p><b>Lower Case:</b> {{post.title|lower}}</p>
+    <p><b>Capital Case:</b> {{post.title|capfirst}}</p>
+    <p><b>Title Case:</b> {{post.title|title}}</p>
+    <p><b>Trancate Char:</b> {{post.title|truncatechars:10}}</p>
+    <p><b>Trancate Word:</b> {{post.title|truncatewords:3}}</p>
+    <p><b>Line Break:</b> {{post.title|linebreaks}}</p>
+    <hr>
+
+    {% comment %} Number Filter{% endcomment %}
+
+    {% comment %} Addition{% endcomment %}
+    <p><b>Original Prices:</b> {{ post.price }}</p>
+    <p><b>Original Prices(+5):</b> {{ post.price|add:5 }}</p>
+    
+    {% comment %} Division By {% endcomment %}
+    {% if post.number|divisibleby:2 %}
+    <p>{{post.number}} is Even</p>
+    {% else %}
+    <p>{{post.number}} is Odd</p>
+    {% endif %}
+
+    {% comment %} List Filter {% endcomment %}
+    <p><b>First Tag:</b> {{ post.tags.0 }}</p>
+    <p><b>Last Tag:</b> {{ post.tags|last }}</p>
+    <p><b>Tag List:</b> {{ post.tags }}</p>
+    <p><b>Tag's Length:</b> {{ post.tags|length }}</p>
+    <p><b>Slice (First 2):</b> {{ post.tags|slice:":2" }}</p>
+    <p><b>Join Tag:</b> {{ post.tags|join:" " }}</p>
+    <hr>
+
+    <p><b>Author Available ? :</b>{{post.author|yesno:"Yes,No,Maybe"}}</p>
+    <p><b>Comments Counts? :</b>{{post.comment_count}} Comment{{post.comment_count|pluralize}}</p>
+    <hr>
+
+    {% comment %} Date Filter {% endcomment %}
+    <p><b>Created At:</b> {{post.created_at}}</p>
+    <p><b>Formated Date:</b> {{post.created_at|date:"D d M y"}}</p>
+    <p><b>Formated Time:</b> {{post.created_at|time:"H:i"}}</p>
+    <hr>
+     
+    {% comment %} Encoding And Formatting {% endcomment %}
+    <p><b>URL Encode:</b>{{ post.title|urlencode }}</p>
+    <p><b>Float Formate Example:</b>{{ 123.4556767|floatformat:3 }}</p>
+
+</body>
+</html>
